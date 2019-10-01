@@ -92,12 +92,21 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+
+# set names for workspaces
+set $ws1 "1:web"
+set $ws2 "2:code"
+set $ws3 "3:terminal"
+set $ws4 "4:documents"
+set $ws5 "5:media"
+
+
 # switch to workspace , Different wallpapers for different workspaces 
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
@@ -105,11 +114,11 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
@@ -154,6 +163,7 @@ bindsym $mod+r mode "resize"
 bar {
         position top 
         status_command i3status
+        strip_workspace_numbers yes
 }
 
 
@@ -174,13 +184,13 @@ bindsym $mod+c exec google-chrome
 
 ## assigned workspaces 
 # 1 for browser 
-assign [class="Google-chrome"] → 1
+assign [class="Google-chrome"] → $ws1
 # 3 for terminal 
-assign [class="St"] → 3
+assign [class="St"] → $ws3
 #  5 for music 
-for_window [class="Spotify"] move to workspace 5
+for_window [class="Spotify"] move to workspace $ws5
 # 4 for documents 
-assign [class="libreoffice-startcenter"] → 4
-assign [class="Evince"] → 4
+assign [class="libreoffice-startcenter"] → $ws4
+assign [class="Evince"] → $ws4
 # 2 for coding
-assign [class="Sublime_text"] → 2
+assign [class="Sublime_text"] → $ws2

@@ -17,5 +17,5 @@ try:
 		output = artist + ' : ' + song[:trunclen]
 	print(output)
 except Exception as e:
-	print("")
+	print("No song")
 
