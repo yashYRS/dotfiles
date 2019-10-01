@@ -167,6 +167,11 @@ bar {
 }
 
 
+# set wallpaper
+exec --no-startup-id feh --randomize --bg-fill ~/Pictures/Wallpapers/*
+
+# shortcut for lock screen script
+bindsym $mod+Control+l exec $HOME/.config/i3/lock.sh
 
 # Pulse Audio controls
 bindsym $mod+F9 exec --no-startup-id pactl -- set-sink-volume 0 +5% #increase sound volume
@@ -177,10 +182,11 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 bindsym $mod+F6 exec xbacklight -inc 5 # increase screen brightness
 bindsym $mod+F5 exec xbacklight -dec 5 # decrease screen brightness
 
-## To do - 1) Modify top bar 2) Modify Wallpaper 3) Modify Terminal style 4) Modify load screen 5) Assign workspaces 
+## To do - 1) Modify top bar 2) Modify load screen
 # shortcut to open chrome 
 bindsym $mod+c exec google-chrome
 
+## font icons : book-open.svg , terminal.svg , search.svg, spotify.svg ,code.svg 
 
 ## assigned workspaces 
 # 1 for browser 
@@ -191,6 +197,7 @@ assign [class="St"] → $ws3
 for_window [class="Spotify"] move to workspace $ws5
 # 4 for documents 
 assign [class="libreoffice-startcenter"] → $ws4
+assign [class="libreoffice-impress"] → $ws4
 assign [class="Evince"] → $ws4
 # 2 for coding
 assign [class="Sublime_text"] → $ws2
