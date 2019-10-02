@@ -187,6 +187,7 @@ bindsym $mod+F5 exec xbacklight -dec 2 # decrease screen brightness
 ## To do - 1) Modify top bar 2) Modify load screen
 # shortcut to open chrome 
 bindsym $mod+c exec google-chrome
+bindsym $mod+Control+b exec polybar-msg cmd toggle
 
 ## font icons : book-open.svg , terminal.svg , search.svg, spotify.svg ,code.svg 
 

@@ -3,7 +3,7 @@
 ;monitor = ${env:MONITOR:HDMI-1}
 monitor-fallback = ${env:MONITOR:LVDS-1}
 width = 100%
-height = 27
+height = 23
 
 background = #00000000
 foreground =  #ccffffff
@@ -16,6 +16,9 @@ padding-right = 1
 module-margin-left = 2
 module-margin-right = 2
 
+override-redirect = true 
+enable-ipc = true 
+
 font-0 = NotoSans-Regular:size=8;0
 font-1 = unifont:size=6;-3
 font-2 =  Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid;0
@@ -23,7 +26,7 @@ font-3 = Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular;0
 
 modules-left = wirelessNetwork memory battery pulseaudio backlight 
 modules-center = i3 
-modules-right = spotifysong wired-network date connect 
+modules-right = title spotifysong wired-network date connect 
 tray-position = right
 
 [module/backlight]
@@ -143,13 +146,14 @@ label-urgent-foreground = #000000
 label-urgent-background = #bd2c40
 label-urgent-padding = 3
 
-
-
-
-
+[module/title]
+type = internal/xwindow
+label =  %title%
+label-maxlen = 20
+label-empty =  Chill
 [module/date]
 type = internal/date
-date =  D: %%{F#99}%Y-%m-%d%%{F-}  T: %%{F#fff}%H:%M%%{F-}
+date =  D: %%{F#99}%d-%m-%y%%{F-}  T: %%{F#fff}%H:%M%%{F-}
 date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
 
 [module/memory]
@@ -346,8 +350,9 @@ content = 
 click-right = nm-applet
 
 [module/spotifysong]
-type = custom/text
+type = custom/script
 ; Available tokens:
-content = To-do
-click-left = python3 $HOME/.config/polybar/spotify.py 
+label =  %output%
+interval = 10
+exec = python3 $HOME/.config/polybar/spotify.py 
 ; vim:ft=dosini

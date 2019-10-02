@@ -2,7 +2,7 @@
 
 import dbus
 
-trunclen = 25
+trunclen = 20
 
 try:
 	session_bus = dbus.SessionBus()
@@ -12,8 +12,10 @@ try:
 	artist = metadata['xesam:artist'][0]
 	song = metadata['xesam:title']
 	if len(song) > trunclen : 
-		output = artist + ' : ' + song[:trunclen]
-	print(output) 
+		output = song[:trunclen]
+	else : 
+		output =  song + ":"+ artist 
+	print(output[:trunclen]) 
 except Exception as e:
 	print("No song")
 
