@@ -160,11 +160,11 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        position top 
-        status_command i3status
-        strip_workspace_numbers yes
-}
+#bar {
+#        position top 
+#        status_command i3status
+#        strip_workspace_numbers yes
+#}
 
 
 # set wallpaper
@@ -195,6 +195,7 @@ assign [class="Google-chrome"] → $ws1
 assign [class="St"] → $ws3
 #  5 for music 
 for_window [class="Spotify"] move to workspace $ws5
+assign [class="vlc"] → $ws5
 # 4 for documents 
 assign [class="libreoffice-startcenter"] → $ws4
 assign [class="libreoffice-impress"] → $ws4

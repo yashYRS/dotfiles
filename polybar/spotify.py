@@ -13,9 +13,7 @@ try:
 	song = metadata['xesam:title']
 	if len(song) > trunclen : 
 		output = artist + ' : ' + song[:trunclen]
-	else : 
-		output = artist + ' : ' + song[:trunclen]
-	print(output)
+	print(output) 
 except Exception as e:
 	print("No song")
 
