@@ -15,10 +15,10 @@ spacing = 2
 padding-right = 5
 module-margin = 4
 
-font-0 = NotoSans-Regular:size=8;-1
-font-1 = MaterialIcons:size=10;0
-font-2 = Termsynu:size=8:antialias=false;-2
-font-3 = Font Awesome 5 Free:size=10;0
+font-0 = Inconsolata:size=18;1
+font-1 = Font Awesome 5 Free-Regular-400:size=10;0
+font-2 = Font Awesome 5 Brands-Regular-400:size=10;0
+font-3 = Font Awesome 5 Free-Solid-900:size=10;0
 
 modules-left = date volume
 modules-right = backlight wireless-network wired-network battery powermenu
@@ -51,13 +51,11 @@ module-margin-right = 0
 
 font-0 = NotoSans-Regular:size=8;0
 font-1 = unifont:size=6;-3
-font-2 = FontAwesome:size=8;-2
-font-3 = NotoSans-Regular:size=8;-1
-font-4 = MaterialIcons:size=10;-1
-font-5 = Termsynu:size=8:antialias=false;0
+font-2 =  Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid;0
+font-3 = Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular;0
 
 modules-left = i3
-modules-right = cpu memory
+modules-right = battery memory
 tray-position = right
 
 [module/backlight]
@@ -166,7 +164,7 @@ label-focused-padding = 3
 ;   %icon%
 ;   %index%
 ; Default: %icon%  %name%
-label-unfocused = %name%
+label-unfocused = %icon%
 label-unfocused-padding = 3
 
 
@@ -175,7 +173,7 @@ label-unfocused-padding = 3
 ;   %icon%
 ;   %index%
 ; Default: %icon%  %name%
-label-visible = %name%
+label-visible = %icon%
 label-visible-underline = #555555
 label-visible-padding = 3
 
@@ -191,36 +189,7 @@ label-urgent-padding = 3
 
 
 
-[module/cpu]
-type = internal/cpu
-interval = 0.5
-format = <label> <ramp-coreload>
-label = CPU
 
-ramp-coreload-0 = ▁
-ramp-coreload-0-font = 2
-ramp-coreload-0-foreground = #aaff77
-ramp-coreload-1 = ▂
-ramp-coreload-1-font = 2
-ramp-coreload-1-foreground = #aaff77
-ramp-coreload-2 = ▃
-ramp-coreload-2-font = 2
-ramp-coreload-2-foreground = #aaff77
-ramp-coreload-3 = ▄
-ramp-coreload-3-font = 2
-ramp-coreload-3-foreground = #aaff77
-ramp-coreload-4 = ▅
-ramp-coreload-4-font = 2
-ramp-coreload-4-foreground = #fba922
-ramp-coreload-5 = ▆
-ramp-coreload-5-font = 2
-ramp-coreload-5-foreground = #fba922
-ramp-coreload-6 = ▇
-ramp-coreload-6-font = 2
-ramp-coreload-6-foreground = #ff5555
-ramp-coreload-7 = █
-ramp-coreload-7-font = 2
-ramp-coreload-7-foreground = #ff5555
 
 [module/date]
 type = internal/date
