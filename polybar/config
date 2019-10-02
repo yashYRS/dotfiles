@@ -21,8 +21,9 @@ font-1 = unifont:size=6;-3
 font-2 =  Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid;0
 font-3 = Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular;0
 
-modules-left = wirelessNetwork memory battery pulseaudio backlight wired-network
-modules-right = i3 date connect 
+modules-left = wirelessNetwork memory battery pulseaudio backlight 
+modules-center = i3 
+modules-right = spotifysong wired-network date connect 
 tray-position = right
 
 [module/backlight]
@@ -148,7 +149,7 @@ label-urgent-padding = 3
 
 [module/date]
 type = internal/date
-date =  %%{F#99}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
+date =  D: %%{F#99}%Y-%m-%d%%{F-}  T: %%{F#fff}%H:%M%%{F-}
 date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
 
 [module/memory]
@@ -343,4 +344,10 @@ ramp-volume-5 = 
 type = custom/text
 content = 
 click-right = nm-applet
+
+[module/spotifysong]
+type = custom/text
+; Available tokens:
+content = To-do
+click-left = python3 $HOME/.config/polybar/spotify.py 
 ; vim:ft=dosini

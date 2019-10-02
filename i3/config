@@ -169,6 +169,8 @@ bindsym $mod+r mode "resize"
 
 # set wallpaper
 exec --no-startup-id feh --randomize --bg-fill ~/Pictures/Wallpapers/*
+# use polybar 
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
 
 # shortcut for lock screen script
 bindsym $mod+Control+l exec $HOME/.config/i3/lock.sh
@@ -180,7 +182,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 
 # Sreen brightness controls
 bindsym $mod+F6 exec xbacklight -inc 5 # increase screen brightness
-bindsym $mod+F5 exec xbacklight -dec 5 # decrease screen brightness
+bindsym $mod+F5 exec xbacklight -dec 2 # decrease screen brightness
 
 ## To do - 1) Modify top bar 2) Modify load screen
 # shortcut to open chrome 
