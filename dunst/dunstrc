@@ -125,7 +125,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed , My format - icon, then appname, then summary, then the body
-    format = "%i<b>%a</b>\n<i>%s</i>\n\n%b"
+    format = "<b>%a</b>\n<i>%s</i>\n\n%b"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
@@ -159,13 +159,13 @@
     ### Icons ###
 
     # Align icons left/right/off
-    icon_position = off
+    icon_position = left
 
     # Scale larger icons down to this size, set to 0 to disable
     max_icon_size = 32
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/:/usr/share/icons/gnome/16x16/emblems/
 
     ### History ###
 
@@ -250,7 +250,7 @@
     frame_color = "#ADADB5"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
-    #icon = /path/to/icon
+    icon = /usr/share/icons/gnome/16x16/emblems/emblem-new.png
 
 [urgency_normal]
     background = "#696969"
@@ -258,7 +258,7 @@
     frame_color = "#f7f7fb"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
-    #icon = /path/to/icon
+    icon = /usr/share/icons/gnome/16x16/emblems/emblem-important.png
 
 [urgency_critical]
     background = "#900000"
@@ -266,7 +266,7 @@
     frame_color = "#ff0000"
     timeout = 0
     # Icon for notifications with critical urgency, uncomment to enable
-    #icon = /path/to/icon
+    icon = /usr/share/icons/gnome/16x16/emblems/emblem-urgent.png
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
@@ -325,4 +325,10 @@
 #    summary = *twitter.com*
 #    urgency = normal
 #
+[google-chrome]
+    appname = 'Google Chrome'
+    icon = /usr/share/icons/gnome/16x16/emblems/emblem-web.png
+    urgency = low
+
+
 # vim: ft=cfg
