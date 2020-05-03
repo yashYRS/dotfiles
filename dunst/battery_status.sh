@@ -4,7 +4,8 @@ BAT_NOW=$BATPATH/charge_now
 bf=$(cat $BAT_FULL)
 bn=$(cat $BAT_NOW)
 
-
+export XDG_RUNTIME_DIR=/run/user/$(id -u) 
+export DISPLAY=:0
 if [ $(( 100 * $bn / $bf )) -gt 97 ]
 then
 	    notify-send -a "Battery Status" -u low "Remove from Charging"

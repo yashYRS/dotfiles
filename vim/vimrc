@@ -1,0 +1,17 @@
+" Clear some search higlighting  
+nnoremap <silent>, <space> :nohlsearch<CR>
+" Save file 
+inoremap <-><-> <esc>:w<CR>
+nnoremap <-><-> :w<CR>
+" Quit file 
+inoremap <`><`> <esc>:q<CR>
+nnoremap <`><`> :q<CR>
+" Navigate if multiple files are open 
+nnoremap <F2> :previous<CR>
+inoremap <F2> <esc>:previous<CR>
+nnoremap <F3> :next<CR>
+inoremap <F3> <esc>:next<CR>
+" For better indentations to be on 
+set autoindent
+set smartindent 
+
