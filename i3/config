@@ -98,7 +98,8 @@ set $ws1 "1:web"
 set $ws2 "2:code"
 set $ws3 "3:terminal"
 set $ws4 "4:documents"
-set $ws5 "5:media"
+set $ws5 "5:teams"
+set $ws6 "6:media"
 
 
 # switch to workspace , Different wallpapers for different workspaces 
@@ -107,7 +108,7 @@ bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace 6
+bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
@@ -119,7 +120,7 @@ bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+6 move container to workspace $ws6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
@@ -168,7 +169,7 @@ bindsym $mod+r mode "resize"
 
 
 # set wallpaper
-exec --no-startup-id feh --randomize --bg-fill ~/Pictures/Wallpapers/*
+exec --no-startup-id feh --randomize --bg-fill ~/Pictures/WallPapers/*
 # use polybar 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
 
@@ -176,34 +177,45 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
 bindsym $mod+Control+l exec $HOME/.config/i3/lock.sh
 
 # Pulse Audio controls
-bindsym $mod+F9 exec --no-startup-id pactl -- set-sink-volume 0 +5% #increase sound volume
-bindsym $mod+F8 exec --no-startup-id pactl -- set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-
-bindsym $mod+F1 exec --no-startup-id redshift-gtk
+bindsym $mod+F3 exec --no-startup-id pactl -- set-sink-volume 1 +5% #increase sound volume
+bindsym $mod+F2 exec --no-startup-id pactl -- set-sink-volume 1 -5% #decrease sound volume
+bindsym $mod+F1 exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
 
 # Sreen brightness controls
-bindsym $mod+F6 exec xbacklight -inc 4 # increase screen brightness
-bindsym $mod+F5 exec xbacklight -dec 2 # decrease screen brightness
+bindsym $mod+F9 exec xbacklight -inc 2 # increase screen brightness
+bindsym $mod+F8 exec xbacklight -dec 2 # decrease screen brightness
 
 ## To do - 1) Modify top bar 2) Modify load screen
-# shortcut to open chrome 
-bindsym $mod+c exec google-chrome
+
+# shortcut to open firefox 
+bindsym $mod+c exec firefox
+
+# shortcut to toggle polybar
 bindsym $mod+Control+b exec polybar-msg cmd toggle
+
+# shortcut to open spotify
+bindsym $mod+Shift+m exec spotify
+
+# shortcut to open teams
+bindsym $mod+Shift+t exec teams
 
 ## font icons : book-open.svg , terminal.svg , search.svg, spotify.svg ,code.svg 
 
 ## assigned workspaces 
 # 1 for browser 
-assign [class="Google-chrome"] → $ws1
+assign [class="Firefox"] → $ws1
+# 2 for coding
+assign [class="Sublime Text"] → $ws2
 # 3 for terminal 
 assign [class="St"] → $ws3
-#  5 for music 
-for_window [class="Spotify"] move to workspace $ws5
-assign [class="vlc"] → $ws5
 # 4 for documents 
 assign [class="libreoffice-startcenter"] → $ws4
 assign [class="libreoffice-impress"] → $ws4
+assign [class="libreoffice-calc"] → $ws4
+assign [class="libreoffice-writer"] → $ws4
 assign [class="Evince"] → $ws4
-# 2 for coding
-assign [class="Sublime_text"] → $ws2
+# 5 for Teams and Discord
+assign [class="teams"] → $ws5
+#  6 for Entertainment 
+for_window [class="Spotify"] move to workspace $ws6
+assign [class="vlc"] → $ws6

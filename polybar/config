@@ -12,7 +12,7 @@ line-color = #00000000
 line-size = 2
 
 spacing = 0
-padding-right = 1
+padding-right = 5
 module-margin-left = 2
 module-margin-right = 2
 
@@ -24,18 +24,20 @@ font-1 = unifont:size=6;-3
 font-2 =  Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid;0
 font-3 = Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular;0
 
-modules-left = wirelessNetwork memory battery pulseaudio backlight 
+modules-left = wireless-network memory battery pulseaudio backlight 
 modules-center = i3 
-modules-right = title spotifysong wired-network date connect 
+modules-right = title wired-network date connect
 tray-position = right
 
 [module/backlight]
-type = internal/xbacklight
+type = internal/backlight
+card = intel_backlight
+
 format = <label><ramp> 
 
 ; Available tokens:
 ;   %percentage% (default)
-label = B: %percentage%%
+label =  %percentage%%
 
 ; Only applies if <ramp> is used
 ramp-0 = 🌕
@@ -48,9 +50,12 @@ ramp-4 = 🌑
 type = internal/battery
 full-at = 98
 
-format-charging = <label-charging> <animation-charging> 
-format-discharging = <label-discharging> <ramp-capacity> 
-format-full = <label-full> <ramp-capacity> 
+battery = BAT1
+adapter = ACAD
+
+format-charging = <animation-charging> <label-charging> 
+format-discharging = <ramp-capacity> <label-discharging> 
+format-full = <ramp-capacity> <label-full> 
 
 ramp-capacity-0 = 
 ramp-capacity-0-foreground = #f53c3c
@@ -84,11 +89,12 @@ fuzzy-match = true
 
 ; ws-icon-[0-9]+ = label;icon
 ; NOTE: The label needs to match the name of the i3 workspace
-ws-icon-0 = 1:web; 
-ws-icon-1 = 2:code; 
-ws-icon-2 = 3:terminal;  
-ws-icon-3 = 4:documents; 
-ws-icon-4 = 5:media; 
+ws-icon-0 = web; 
+ws-icon-1 = code; 
+ws-icon-2 = terminal;  
+ws-icon-3 = documents; 
+ws-icon-4 = teams; 
+ws-icon-5 = media; 
 ws-icon-default = ; 
 
 
@@ -148,17 +154,29 @@ label-urgent-padding = 3
 
 [module/title]
 type = internal/xwindow
-label =  %title%
-label-maxlen = 20
+label =  %title%
+label-maxlen = 40
 label-empty =  Chill
+
 [module/date]
 type = internal/date
-date =  D: %%{F#99}%d-%m-%y%%{F-}  T: %%{F#fff}%H:%M%%{F-}
-date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
+date = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
+
+; Available tags:
+;   <label> (default)
+
+format = 🕓 <label>
+
+; Available tokens:
+;   %date%
+;   %time%
+; Default: %date%
+label = %date% %time%
+label-font = 3
 
 [module/memory]
 type = internal/memory
-format = <label> <ramp-used> <ramp-free>
+format = <ramp-used> <ramp-free>   
 
 bar-used-width = 8
 bar-used-foreground-0 = #aaff77
@@ -235,15 +253,15 @@ menu-2-1-foreground = #fba922
 menu-2-1-exec = menu_open-0
 
 
-[module/wirelessNetwork]
+[module/wireless-network]
 type = internal/network
-interface = wlp2s0
+interface = wlp0s20f3
 
 ; Seconds to sleep between updates
 ; Default: 1
 interval = 3.0
 
-
+label-font = 4
 
 
 ; Accumulate values from all interfaces when querying for up/downspeed rate
@@ -279,7 +297,7 @@ format-packetloss = <animation-packetloss> <label-connected>
 ;   %linkspeed% [wired]
 
 ; Default: %ifname% %local_ip%
-label-connected = WL: %essid%
+label-connected = Wifi: %essid%
 label-connected-foreground = #eefafafa
 
 ; Default: (none)
@@ -292,8 +310,8 @@ label-disconnected-foreground = #66ffffff
 
 ; Only applies if <ramp-signal> is used
 
-ramp-signal-0 = 
-ramp-signal-1 = 
+ramp-signal-0 = 
+ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-3 = 
 
@@ -337,22 +355,18 @@ label-muted = 
 label-muted-foreground = #666
 
 ; Only applies if <ramp-volume> is used
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-ramp-volume-3 = 
-ramp-volume-4 = 
-ramp-volume-5 = 
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+ramp-volume-4 = 
+ramp-volume-5 = 
+
+
 
 [module/connect]
 type = custom/text
-content = 
+content = f
 click-right = nm-applet
 
-[module/spotifysong]
-type = custom/script
-; Available tokens:
-label =  %output%
-interval = 10
-exec = python3 $HOME/.config/polybar/spotify.py 
 ; vim:ft=dosini
