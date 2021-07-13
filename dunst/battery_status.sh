@@ -1,6 +1,6 @@
-BATPATH=/sys/class/power_supply/BAT0
-BAT_FULL=$BATPATH/charge_full
-BAT_NOW=$BATPATH/charge_now
+BATPATH=/sys/class/power_supply/BAT1
+BAT_FULL=$BATPATH/energy_full
+BAT_NOW=$BATPATH/energy_now
 bf=$(cat $BAT_FULL)
 bn=$(cat $BAT_NOW)
 

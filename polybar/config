@@ -157,6 +157,7 @@ type = internal/xwindow
 label =  %title%
 label-maxlen = 40
 label-empty =  Chill
+label-font = 3
 
 [module/date]
 type = internal/date
@@ -165,7 +166,7 @@ date = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
 ; Available tags:
 ;   <label> (default)
 
-format = 🕓 <label>
+format = <label>
 
 ; Available tokens:
 ;   %date%
@@ -261,7 +262,7 @@ interface = wlp0s20f3
 ; Default: 1
 interval = 3.0
 
-label-font = 4
+label-font = 3
 
 
 ; Accumulate values from all interfaces when querying for up/downspeed rate
